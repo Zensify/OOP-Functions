@@ -1,11 +1,9 @@
-backpackItem = []
-
 
 class Backpack(object):
-    def __init__(self, color, size, item):
+    def __init__(self, color, size):
         self.color = color
         self.size = size
-        self.item = item
+        self.items = []
         self.open = False
 
     def openBag(self):
@@ -18,17 +16,17 @@ class Backpack(object):
 
     def putIn(self, item):
         if self.open == True:
-            backpackItem.append(item)
+            self.items.append(item)
 
     def takeOut(self, item):
         if self.open == True:
-            backpackItem.remove(item)
+            self.items.remove(item)
 
 
 # task 2
-blue = Backpack("blue", "small", "x")
-red = Backpack("red", "medium", "x")
-green = Backpack("green", "large", "x")
+blue = Backpack("blue", "small")
+red = Backpack("red", "medium")
+green = Backpack("green", "large")
 
 blue.openBag()  # Open Bag
 blue.putIn("lunch")  # Put in Lunch
@@ -37,5 +35,3 @@ blue.closeBag()  # close
 blue.openBag()  # open
 blue.takeOut("jacket")  # take out jacket
 blue.closeBag()  # close
-
-print(backpackItem)
